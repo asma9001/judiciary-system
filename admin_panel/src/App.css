@@ -16,9 +16,9 @@ h6 {
   color: #464255;
 }
 .sidebar {
-  max-width: 217px;
+  width: 17%;
   min-height: 100vh; /* Ensure full height on all screens */
-
+  position: fixed;
   top: 0;
   left: 0;
   color: #fff;
@@ -29,14 +29,10 @@ h6 {
 
 @media (max-width: 768px) {
   .sidebar {
-    width: 100%; /* Full width on mobile */
-    position: fixed; 
-
+    height: 100%;
+    /* position: fixed; */
+    width: 80%;
     /* z-index: 1000;  */
-  }
-
-  .content {
-    margin-left: 0; /* Content takes full width on mobile */
   }
 
   /* Sidebar overlays the content on small screens */
@@ -48,9 +44,6 @@ h6 {
     transform: translateX(-100%); /* Slide out of view on mobile */
   }
 }
-
-
-
 
 /* .overlay {
   position: fixed;
@@ -196,7 +189,11 @@ input:focus {
   outline: none;
   box-shadow: none;
 }
-
+form input:focus {
+  border-color: black;
+  outline: none;
+  box-shadow: none;
+}
 .form-check-input.custom-checkbox:checked {
   background-color: rgba(0, 150, 136, 1);
 }
@@ -213,4 +210,79 @@ input:focus {
 }
 .modal {
   z-index: 1050;
+}
+.custom-table-header th {
+  background: linear-gradient(rgba(0, 150, 136, 1), rgba(34, 209, 193, 0.8));
+  color: white !important;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 15px !important;
+  /* padding-left: 5px !important; */
+}
+.custom-table-header {
+  border: 0.5px solid rgba(151, 151, 151, 1);
+}
+
+.total-row {
+  box-shadow: 0 3px 4px 0px rgba(0, 0, 0, 0.25);
+  background-color: #f8f9fa;
+}
+
+.status-approved {
+  background-color: rgba(14, 170, 14, 1);
+  color: white;
+  padding: 0.3rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-size: 12px;
+}
+.status-rejected {
+  background-color: rgba(255, 7, 7, 1);
+  color: white;
+  padding: 0.3rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-size: 12px;
+}
+.status-unknown {
+  background-color: rgba(255, 255, 255, 1);
+  color: white;
+  padding: 0.3rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-size: 12px;
+}
+.review-button {
+  background-color: rgba(0, 150, 136, 1);
+  color: white;
+  padding: 0.3rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-size: 12px;
+}
+.content-wrapper {
+  width: auto;
+}
+.custom-paragraph {
+  font-size: 12px;
+  line-height: 26px;
+  letter-spacing: 0.5px;
+}
+/* Default (for larger screens) */
+.close-btn-container {
+  bottom: 95%;
+  right: -4%;
+  z-index: 1;
+}
+
+/* For smaller screens (below 576px) */
+@media (max-width: 576px) {
+  .close-btn-container {
+    right: 20px; /* Adjust for smaller screens */
+    top: 5px;
+  }
 }

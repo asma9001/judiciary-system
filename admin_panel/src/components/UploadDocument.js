@@ -8,16 +8,17 @@ import { useNavigate } from "react-router-dom";
 export const UploadDocument = ({ activeTab, setActiveTab }) => {
   const [showFileUpload, setShowFileUpload] = useState(false);
   const [showDocument, setShowDocument] = useState(false);
-  const [isUploadActive, setIsUploadActive] = useState(false); // Track which button is active
-  const [isLibraryActive, setIsLibraryActive] = useState(false); // Track Document Library button state
+  const [isUploadActive, setIsUploadActive] = useState(false);
+  const [isLibraryActive, setIsLibraryActive] = useState(false);
+  const [message, setMessage] = useState(""); // State for the message
   const navigate = useNavigate();
 
   const handleUploadClick = (e) => {
     e.preventDefault();
     setShowFileUpload(true);
-    setShowDocument(false); // Hide DocumentLibrary when FileUpload is shown
-    setIsUploadActive(true); // Set Upload Document button as active
-    setIsLibraryActive(false); // Ensure Document Library button is not active
+    setShowDocument(false);
+    setIsUploadActive(true);
+    setIsLibraryActive(false);
   };
 
   const handleDocumentClick = (e) => {
@@ -31,16 +32,26 @@ export const UploadDocument = ({ activeTab, setActiveTab }) => {
   const handleBackClick = () => {
     setActiveTab(activeTab - 1);
   };
+
   const handleNextClick = () => {
+    setMessage("Note: You have successfully completed the petition form"); // Set the message
     setActiveTab(activeTab + 1);
+    navigate("/addform", {
+      state: {
+        message: "Note: You have successfully completed the petition form",
+      },
+    });
   };
+
   return (
-    <div className="container ms-md-5 mt-3 ">
+    <div className="container ms-md-5 mt-3">
       <h2 className="fs-5 fw-bold">Insert Document</h2>
+      {message && <div className="alert alert-info">{message}</div>}{" "}
+      {/* Display the message */}
       <div className="d-flex flex-md-row flex-column">
-        <div className="d-flex mt-3  align-items-center ">
+        <div className="d-flex mt-3 align-items-center">
           <button
-            className={`px-3  py-2 fs-6 me-2 ${
+            className={`px-3 py-2 fs-6 me-2 ${
               isUploadActive
                 ? "bgcustom-color fw-bold text-white"
                 : "bg-transparent"
@@ -58,7 +69,7 @@ export const UploadDocument = ({ activeTab, setActiveTab }) => {
           <span className="me-2">--or--</span>
 
           <button
-            className={`px-3 py-2 fs-6  ${
+            className={`px-3 py-2 fs-6 ${
               isLibraryActive
                 ? "bgcustom-color fw-bold text-white"
                 : "bg-transparent"
@@ -74,11 +85,11 @@ export const UploadDocument = ({ activeTab, setActiveTab }) => {
           </button>
         </div>
         {showDocument && (
-          <div className="d-md-flex d-block align-items-center mt-3 ">
-            <div className="d-flex flex-md-row flex-column ">
-              <div className="d-flex flex-md-row  flex-md-row-reverse  align-items-center mx-md-4">
+          <div className="d-md-flex d-block align-items-center mt-3">
+            <div className="d-flex flex-md-row flex-column">
+              <div className="d-flex flex-md-row flex-md-row-reverse align-items-center mx-md-4">
                 <select
-                  className="form-select  me-2"
+                  className="form-select me-2"
                   aria-label="Filter select"
                   id="filterBy"
                   style={{
@@ -99,10 +110,10 @@ export const UploadDocument = ({ activeTab, setActiveTab }) => {
                 </label>
               </div>
 
-              <div className="d-flex gap-3 align-items-center mt-2 mb-2 ">
+              <div className="d-flex gap-3 align-items-center mt-2 mb-2">
                 <input
                   type="text"
-                  className="form-control "
+                  className="form-control"
                   id="searchInput"
                   placeholder="Search"
                   style={{
@@ -122,7 +133,6 @@ export const UploadDocument = ({ activeTab, setActiveTab }) => {
           </div>
         )}
       </div>
-
       {showFileUpload && (
         <div className="mt-3">
           <FileUpload />
@@ -131,7 +141,6 @@ export const UploadDocument = ({ activeTab, setActiveTab }) => {
       {showDocument && (
         <div className="mt-3 d-flex">
           <DocumentLibrary />
-          {/* <DocumentLibrary /> */}
         </div>
       )}
       <div className="mt-5 d-flex gap-3">

@@ -54,11 +54,11 @@ export const PetitionModel = () => {
       aria-labelledby="staticBackdropLabel"
       aria-hidden="true"
     >
-      <div className="modal-dialog modal-dialog-centered" style={{ maxWidth: "700px" }}>
-        <div
-          className="modal-content custom-shadow rounded-4 p-md-5 px-4 pb-5"
-          style={{ backgroundColor: "#E4F4F3" }}
-        >
+      <div
+        className="modal-dialog modal-dialog-centered"
+        style={{ maxWidth: "700px" }}
+      >
+        <div className="modal-content custom-shadow rounded-4 p-md-5 px-4 pb-5">
           <div className="d-flex justify-content-between align-items-center">
             <p className="fs-md-4 fs-4 fw-bold mb-0 me-auto pt-5 pt-md-0">
               {data[index]?.heading}
@@ -70,7 +70,10 @@ export const PetitionModel = () => {
               aria-label="Close"
             ></button>
           </div>
-          <p className="fst-italic fs-5 fw-lighter" style={{ color: "#3F3E3E" }}>
+          <p
+            className="fst-italic fs-5 fw-lighter"
+            style={{ color: "#3F3E3E" }}
+          >
             {data[index]?.subHeading}
           </p>
           <div>
@@ -92,7 +95,10 @@ export const PetitionModel = () => {
                                   })}
                                 >
                                   {field.options.map((option) => (
-                                    <option key={option.value} value={option.value}>
+                                    <option
+                                      key={option.value}
+                                      value={option.value}
+                                    >
                                       {option.label}
                                     </option>
                                   ))}
@@ -113,7 +119,9 @@ export const PetitionModel = () => {
                                 />
                               )}
                               {errors[field.name] && (
-                                <p className="text-danger">{errors[field.name]?.message}</p>
+                                <p className="text-danger">
+                                  {errors[field.name]?.message}
+                                </p>
                               )}
                             </div>
                           </div>
@@ -131,7 +139,10 @@ export const PetitionModel = () => {
                                   })}
                                 >
                                   {field.options.map((option) => (
-                                    <option key={option.value} value={option.value}>
+                                    <option
+                                      key={option.value}
+                                      value={option.value}
+                                    >
                                       {option.label}
                                     </option>
                                   ))}
@@ -152,7 +163,9 @@ export const PetitionModel = () => {
                                 />
                               )}
                               {errors[field.name] && (
-                                <p className="text-danger">{errors[field.name]?.message}</p>
+                                <p className="text-danger">
+                                  {errors[field.name]?.message}
+                                </p>
                               )}
                             </div>
                           ))}
@@ -172,11 +185,15 @@ export const PetitionModel = () => {
                                 id={option.value}
                                 value={option.value}
                               />
-                              <label className="form-check-label">{option.label}</label>
+                              <label className="form-check-label">
+                                {option.label}
+                              </label>
                             </div>
                           ))}
                           {errors.gender && (
-                            <span className="text-danger">This field is required</span>
+                            <span className="text-danger">
+                              This field is required
+                            </span>
                           )}
                         </div>
                       )}
@@ -197,7 +214,9 @@ export const PetitionModel = () => {
                       alt="Back"
                       className="bg-transparent border border-white w-2 h-2 rounded-5 px-2 py-1"
                     />
-                    <span className="text-white ps-3 pe-2 fs-md-5 fs-6">Back</span>
+                    <span className="text-white ps-3 pe-2 fs-md-5 fs-6">
+                      Back
+                    </span>
                   </button>
                 )}
                 <button

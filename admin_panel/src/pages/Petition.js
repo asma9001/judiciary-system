@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SubNavbar from "../components/SubNavbar";
-
 import { UploadDocument } from "../components/UploadDocument";
 import { ReviewDocument } from "../components/ReviewDocument";
 import { PetitionModel } from "../components/PetitionModel";
 import { useLocation } from "react-router-dom";
 import { ExecutorModel } from "../components/ExecutorModel";
 import { AffidavitModel } from "../components/AffidavitModel";
+
 export const Petition = () => {
   const location = useLocation();
-  const { message } = location.state || {};
-  console.log("Received message:", message);
+  let { message } = location.state || {};
   const [activeTab, setActiveTab] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [gender, setGender] = useState("male");
@@ -27,9 +26,11 @@ export const Petition = () => {
   const progress = ((activeTab + 1) / tabs.length) * 100;
   const progressPercentage = activeTab === 0 ? 1 : progress;
 
-  // Function to handle Next button click
+  // Handle next button
   const handleNext = () => {
     if (activeTab < tabs.length - 1) {
+      message = "";
+      console.log(message, "msg");
       setActiveTab(activeTab + 1);
     }
   };
@@ -47,8 +48,6 @@ export const Petition = () => {
             style={{
               whiteSpace: "nowrap",
               scrollbarWidth: "none",
-              
-             
             }}
           >
             {tabs.map((tab, index) => (
@@ -59,11 +58,11 @@ export const Petition = () => {
                   }`}
                   onClick={() => setActiveTab(index)}
                   style={{
-                    fontSize:'14px',
+                    fontSize: "14px",
                     backgroundColor:
                       activeTab === index ? "rgb(0, 150, 136)" : "transparent",
                     border: "1px dashed rgb(159, 159, 159)",
-                    boxShadow:"4px 6px 6px 0px rgba(0, 0, 0, 0.25)",
+                    boxShadow: "4px 6px 6px 0px rgba(0, 0, 0, 0.25)",
                     color: activeTab === index ? "white" : "#646363",
                   }}
                 >
@@ -94,15 +93,16 @@ export const Petition = () => {
         </div>
       </div>
 
+      {/* Conditionally show the content based on activeTab */}
       {activeTab === 3 ? (
         <UploadDocument activeTab={activeTab} setActiveTab={setActiveTab} />
       ) : activeTab === 4 ? (
         <ReviewDocument activeTab={activeTab} setActiveTab={setActiveTab} />
       ) : (
         <div>
-          {message ? (
+          {message ? ( // Show message only for the first tab or based on your requirement
             <>
-              <div className="bgcustom-color container d-flex align-items-center pt-3 mt-1">
+              <div className="bgcustom-color w-100 container m-0 d-flex align-items-center pt-3 mt-1">
                 <p className="text-white ms-md-5 px-3 fs-5 lh-2 lh-md-0">
                   <span className="fw-bold">
                     {" "}
@@ -147,24 +147,22 @@ export const Petition = () => {
                   dolore magna aliqua.
                 </p>
               </div>
-              {!message && (
-                <div className="mt-3 text-white">
-                  <button
-                    data-bs-toggle="modal"
-                    data-bs-target="#staticBackdrop"
-                    className="text-white py-1 px-4 d-flex gap-2 align-items-center justify-content-center fs-5 custom-button rounded-5"
-                    onClick={() => setShowModal(true)}
-                  >
-                    Continue
-                  </button>
-                </div>
-              )}
+
+              <div className="mt-3 text-white">
+                <button
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                  className="text-white py-1 px-4 d-flex gap-2 align-items-center justify-content-center fs-5 custom-button rounded-5"
+                  onClick={() => setShowModal(true)}
+                >
+                  Continue
+                </button>
+              </div>
             </div>
           )}
         </div>
       )}
       {activeTab === 2 && <AffidavitModel />}
-
       {activeTab === 1 ? <ExecutorModel /> : <PetitionModel />}
     </div>
   );

@@ -41,27 +41,22 @@ export const PreviewModel = () => {
             className="modal-content text-center"
             style={{ color: "rgba(0, 0, 0, 1)" }}
           >
-            <div className="modal-body position-relative d-flex justify-content-between align-items-center">
-              <div
-                className=" position-absolute "
-                style={{
-                  top: "-4%",
-                  right: "-6%",
-                }}
-              >
+            <div className="modal-body mt-md-3 pt-5 position-relative d-flex  justify-content-between align-items-center">
+              <div className=" position-absolute  close-btn-container">
                 <button
                   type="button"
                   class="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
                 >
-                  
                   <img src={closeIcon} alt="closeIcon" />
                 </button>
               </div>
               <img src={coatArm} />
-              <div className="text-center ">
-                <h1 className=" fs-6 fw-bold">COMMONWEALTH OF THE BAHAMAS</h1>
+              <div className="text-center pt-3 flex-1  ">
+                <h1 className="  fw-bold" style={{ fontSize: "14px" }}>
+                  COMMONWEALTH OF THE BAHAMAS
+                </h1>
                 <h2
                   className="  fw-bold text-decoration-underline"
                   style={{ fontSize: "12px" }}
@@ -70,18 +65,22 @@ export const PreviewModel = () => {
                 </h2>
               </div>
 
-              <img src={BahamasLogo} />
+              <img src={BahamasLogo} className="img-fluid" />
             </div>
             <h3
-              className="mt-3 fs-6 text-decoration-underline"
+              className="mt-2 fs-6 text-decoration-underline"
               style={{ fontWeight: "600" }}
             >
               The PETITION
             </h3>
-            <div className="d-flex justify-content-between mx-4 mt-5 ">
+            <div className="d-flex justify-content-between mx-md-4 mx-2 mt-5 ">
               <div className="text-start">
-                <h3 style={{ fontSize: "12px" }}>IN THE SUPREME COURT</h3>
-                <h4 style={{ fontSize: "12px" }}>PROBATE DIVISION</h4>
+                <h3 style={{ fontSize: "12px", fontWeight: "600" }}>
+                  IN THE SUPREME COURT
+                </h3>
+                <h4 style={{ fontSize: "12px", fontWeight: "600" }}>
+                  PROBATE DIVISION
+                </h4>
               </div>
               <div className="text-end align-items-center d-flex">
                 <h4 style={{ fontSize: "12px", fontWeight: "400" }}>
@@ -91,27 +90,27 @@ export const PreviewModel = () => {
             </div>
             {index === 0 && (
               <>
-                <div className="mt-5 mx-4 text-start lh-4">
-                  <p>
+                <div className="mt-5 mx-md-4  mx-2 text-start lh-4">
+                  <p className="custom-paragraph ">
                     In the Estate of
-                    <span className="fw-bold text-decoration-underline">
+                    <span className="fw-bold text-decoration-underline text-uppercase">
                       {" "}
                       John Smith{" "}
                     </span>
                     , late of Bahamas Boulevard, Hope Town on the Island of
                     Abaco one of the Islands of the Commonwealth of The Bahamas,
-                    deceased.{" "}
+                    deceased.
                   </p>
                 </div>
-                <div className="mt-4 mx-4 text-start lh-4">
-                  <p>
+                <div className="mt-4 mx-md-4 mx-2 text-start lh-4">
+                  <p className="custom-paragraph">
                     Application is hereby made for a
                     <span className="fw-bold text-decoration-underline">
                       {" "}
                       GRANT OF PROBATE{" "}
                     </span>
                     in respect of the real and personal estate and effects of
-                    <span className="fw-bold text-decoration-underline">
+                    <span className="fw-bold text-decoration-underline text-uppercase">
                       {" "}
                       John Smith{" "}
                     </span>
@@ -120,16 +119,17 @@ export const PreviewModel = () => {
                     deceased.
                   </p>
                 </div>
-                <div className="d-flex justify-content-between mt-4 mb-4 align-items-center mx-4">
-                  <div className="d-flex align-items-center">
+                <div className="d-flex justify-content-between mt-4 mb-4 align-items-center mx-md-4 mx-2">
+                  <div className="d-flex align-items-center ">
                     <p style={{ fontSize: "12px" }} className="me-2 mb-0">
                       Signature
                     </p>
                     <span
                       style={{
                         borderTop: "0.5px dotted rgba(0, 0, 0, 1)",
-                        width: "129px",
+                        width: "60px",
                         height: "0",
+                        marginBottom: "0",
                       }}
                       className="flex-grow-1"
                     ></span>
@@ -163,7 +163,7 @@ export const PreviewModel = () => {
             {index === 1 && (
               <>
                 <div className="mt-5 mx-4 text-start lh-4">
-                  <p>
+                  <p className="custom-paragraph">
                     In the Estate of
                     <span className="fw-bold text-decoration-underline">
                       {" "}
@@ -193,16 +193,21 @@ export const PreviewModel = () => {
                   style={{ borderColor: "rgba(0, 0, 0, 1)" }}
                 ></div>
                 <div className="d-flex justify-content-between mt-5 align-items-center mx-4 mb-4">
-                  <p style={{ fontSize: "12px" }}>
+                  <p style={{ fontSize: "12px", fontWeight: "400" }}>
                     Filed the 02 day of March A.D. 2023
                   </p>
                   <div className="d-flex flex-column">
-                    <p className="mb-0">Johnson Brown </p>
+                    <p
+                      className="mb-1"
+                      style={{ fontSize: "12px", fontWeight: "600" }}
+                    >
+                      Johnson Brown{" "}
+                    </p>
 
                     <p
                       style={{
                         borderTop: "1px dotted black",
-                        fontSize: "12px",
+                        fontSize: "10px",
                         fontWeight: "600",
                       }}
                       className="pt-1"
@@ -222,10 +227,10 @@ export const PreviewModel = () => {
                   </span>
                 </div>
                 <div className="d-flex justify-content-between mx-4 mt-4 align-items-center mb-5">
-                  <h1 className="fs-6">
+                  <h1 style={{ fontSize: "12px", fontWeight: "600" }}>
                     To: The Registrar of the Supreme Court.
                   </h1>
-                  <img src={scanImage} alt="scanImage" />
+                  <img src={scanImage} alt="scanImage" className="me-3" />
                 </div>
               </>
             )}

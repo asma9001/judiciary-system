@@ -90,7 +90,9 @@ export const AffidavitModel = () => {
                 <div className="mb-3 row mt-3">
                   {data[index]?.fields?.map((field, fieldIdx) => (
                     <div className=" mb-2" key={fieldIdx}>
-                      <label classNcol-md-6 col-12ame="form-check-label">{field.label}</label>
+                      <label classNcol-md-6 col-12ame="form-check-label">
+                        {field.label}
+                      </label>
                       {field.inputType === "text" && (
                         <input
                           type={field.inputType}

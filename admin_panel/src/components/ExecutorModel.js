@@ -30,7 +30,11 @@ export const ExecutorModel = () => {
         document.querySelectorAll(".modal-backdrop").forEach((backdrop) => {
           backdrop.remove();
         });
-        navigate("/addform");
+        navigate("/addform", {
+          state: {
+            message: "Note: You have successfully completed the petition form",
+          },
+        });
       }, 300);
     } else {
       setIndex((prevIndex) => prevIndex + 1);

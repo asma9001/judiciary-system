@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SubNavbar from "../components/SubNavbar";
+
 import nextIcon from "../assets/next-icon.svg";
 import { Petition } from "../pages/Petition";
 
@@ -40,8 +40,6 @@ export const AddForm = () => {
 
   return (
     <div>
-      <SubNavbar />
-
       {!showPetition ? (
         <div className="d-flex flex-column mt-1">
           <div className="border-top border-bottom border-black py-md-3 py-2 bg-light text-dark">
