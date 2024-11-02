@@ -6,10 +6,7 @@ const SubNavbar = () => {
   const location = useLocation();
 
   return (
-    <div
-      className="pb-2  gap-1 d-flex flex-column flex-md-row align-items-md-center justify-content-between bgNavbar-color"
-     
-    >
+    <div className="pb-2  gap-1 d-flex flex-column flex-md-row align-items-md-center justify-content-between bgNavbar-color">
       <div className="d-flex flex-wrap">
         <NavLink
           to="/"
@@ -19,22 +16,20 @@ const SubNavbar = () => {
             fontSize: "14px", // Increased font size for readability
           }}
         >
-          Dashboard
+          Dashboard{" "}
         </NavLink>
 
         {location.pathname !== "/" && (
           <>
-            <span className="mt-2" style={{ color: "blue", fontSize: "14px" }}>
-              &gt;
-            </span>
             <NavLink
               to={location.pathname}
               className="text-decoration-none mt-2 me-0"
               style={{
                 color: "blue",
-                fontSize: "14px", // Increased font size for readability
+                fontSize: "14px",
               }}
             >
+              <span>&gt;</span>
               {location.pathname.slice(1)}
             </NavLink>
           </>
@@ -53,7 +48,12 @@ const SubNavbar = () => {
           <span className="mb-0" style={{ fontSize: "10px", color: "#616162" }}>
             The Supreme Court of The Bahamas
           </span>
-          <img src={dropdown} className="text-black-50 ms-2" alt="" style={{ width: '10px', height: '10px' }} />
+          <img
+            src={dropdown}
+            className="text-black-50 ms-2"
+            alt=""
+            style={{ width: "10px", height: "10px" }}
+          />
         </div>
       </div>
     </div>

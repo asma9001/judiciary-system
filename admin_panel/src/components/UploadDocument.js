@@ -46,8 +46,8 @@ export const UploadDocument = ({ activeTab, setActiveTab }) => {
   return (
     <div className="container ms-md-5 mt-3">
       <h2 className="fs-5 fw-bold">Insert Document</h2>
-      {message && <div className="alert alert-info">{message}</div>}{" "}
-      {/* Display the message */}
+      {/* {message && <div className="alert alert-info">{message}</div>}{" "} */}
+
       <div className="d-flex flex-md-row flex-column">
         <div className="d-flex mt-3 align-items-center">
           <button

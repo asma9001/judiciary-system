@@ -3,34 +3,49 @@ import React, { useState } from "react";
 import nextIcon from "../assets/next-icon.svg";
 import { Petition } from "../pages/Petition";
 
+import CustomSelectInput from "../components/CustomSelectInput";
 export const AddForm = () => {
   const [showPetition, setShowPetition] = useState(false);
-  const [selectedForm, setSelectedForm] = useState("Select Form");
-  const [selectedOffice, setSelectedOffice] = useState("Select an office");
+  const [selectedForm, setSelectedForm] = useState("");
+  const [selectedOffice, setSelectedOffice] = useState("");
   const [formError, setFormError] = useState("");
   const [officeError, setOfficeError] = useState("");
 
+  const [officeOpen, setOfficeOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const formOptions = ["PROBATE"];
+  const officeOptions = ["NASSAU", "FREEPORT"];
   const handleFormSelect = (form) => {
     setSelectedForm(form);
     setFormError("");
+    setOpen(false);
   };
 
   const handleOfficeSelect = (office) => {
     setSelectedOffice(office);
     setOfficeError("");
+    setOfficeOpen(false);
   };
 
   const handleNextClick = () => {
     let hasError = false;
 
-    if (selectedForm === "Select a type" || selectedForm === "Select Form") {
+    if (
+      selectedForm === "Select a type" ||
+      selectedForm === "" ||
+      selectedForm === "Select Form"
+    ) {
       setFormError("Please Select Form Type");
-      return;
+      hasError = true;
     }
 
-    if (selectedForm === "Probate" && selectedOffice === "Select an office") {
+    if (
+      selectedForm === "PROBATE" &&
+      (selectedOffice === "" || selectedOffice === "Select an office")
+    ) {
       setOfficeError("Please Select an Office");
-      return;
+      hasError = true;
     }
 
     if (!hasError) {
@@ -58,52 +73,31 @@ export const AddForm = () => {
           <div className="mt-md-5 mt-4 container">
             <div className="row mx-md-5">
               <div className="col-md-8 ">
-                <div className="mx-3 flex-row gap-2 gap-md-0 d-flex flex-md-row flex-column">
-                  <div className="col-md-2 mt-md-2">
-                    <span>Form Type</span>
-                  </div>
-                  <div className="col-md-10">
-                    <select
-                      className="form-select p-2"
-                      aria-label="Default select example"
-                      onChange={(e) => handleFormSelect(e.target.value)}
-                    >
-                      <option value="Select a type">Select a type</option>
-                      <option value="Probate">PROBATE</option>
-                    </select>
-                    {/* Form Error Message */}
-                    {formError && (
-                      <div className="text-danger mt-1">{formError}</div>
-                    )}
-                  </div>
-                </div>
+                <CustomSelectInput
+                  label="Form Type"
+                  defaultSelect="Select Form"
+                  selectedValue={selectedForm}
+                  options={formOptions}
+                  onSelect={handleFormSelect}
+                  error={formError}
+                />
 
-                {selectedForm === "Probate" && (
-                  <div className="mx-3 mt-md-4 mt-3 flex-row gap-2 gap-md-0 d-flex flex-md-row flex-column">
-                    <div className="col-md-2">
-                      <span className="me-3">Probate Registry</span>
-                    </div>
-                    <div className="col-md-10">
-                      <select
-                        className="form-select p-2"
-                        onChange={(e) => handleOfficeSelect(e.target.value)}
-                      >
-                        <option value="Select an office">
-                          Select an office
-                        </option>
-                        <option value="NASSAU">NASSAU</option>
-                        <option value="FREEPORT">FREEPORT</option>
-                      </select>
-                      {/* Office Error Message */}
-                      {officeError && (
-                        <div className="text-danger mt-1">{officeError}</div>
-                      )}
-                    </div>
-                  </div>
+                {selectedForm === "PROBATE" && (
+                  <CustomSelectInput
+                    defaultSelect="Select Office"
+                    label="Probate Registry"
+                    selectedValue={selectedOffice}
+                    options={officeOptions}
+                    onSelect={handleOfficeSelect}
+                    error={officeError}
+                  />
                 )}
 
                 {/* Button Section */}
-                <div className="mt-md-5 mt-4" style={{ marginLeft: "18%" }}>
+                <div
+                  className=""
+                  style={{ marginLeft: "18%", marginTop: "9%" }}
+                >
                   <button
                     className="btn py-0 d-flex gap-2 ms-auto ms-md-0 me-3 align-items-center justify-content-center custom-button rounded-5"
                     onClick={handleNextClick}
@@ -119,7 +113,7 @@ export const AddForm = () => {
               </div>
 
               {/* About Section */}
-              {selectedForm === "Probate" && (
+              {selectedForm === "PROBATE" && (
                 <div className="col-md-4 mt-4 mt-md-0">
                   <div className="bgcustom-color mx-0 text-white border border-black border-bottom-0 text-center px-3 py-3 text-white fw-semibold fs-5">
                     About Selected Form

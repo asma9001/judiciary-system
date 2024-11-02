@@ -10,7 +10,7 @@ const FormData = [
     buttonName: "Save & Continue",
   },
   {
-    heading: "Select Deceased Gender:",
+    heading: "Select Deceased Gender :",
     subHeading: "Deceased is a male /female",
     selected: "Male",
     inputType: "radio",
@@ -72,7 +72,7 @@ const FormData = [
     heading: "Nature of grant sought?",
 
     inputType: "radio",
-    genderSelection: {
+    natureSelection: {
       selected: "Probate",
       options: [
         {
@@ -198,20 +198,20 @@ const FormData = [
     fields: [
       {
         label: "Day",
-        inputType: "text",
-        name: "deathDay",
+        inputType: "number",
+        name: "Day",
         message: "invalid Day",
       },
       {
         label: "Month",
-        inputType: "text",
-        name: "deathMonth",
+        inputType: "number",
+        name: "Month",
         message: "invalid Month",
       },
       {
         label: "Year",
-        inputType: "text",
-        name: "deathYear",
+        inputType: "number",
+        name: "Year",
         message: "invalid Year",
       },
     ],
@@ -294,7 +294,7 @@ const FormData = [
     heading: "Did the deceased own property?",
     selected: "Yes",
     inputType: "radio",
-    codicilSelection: {
+    property: {
       options: [
         { id: 1, label: "Yes", value: "Yes" },
         { id: 2, label: "No", value: "No" },
@@ -306,7 +306,7 @@ const FormData = [
     heading: "Choose one:",
 
     inputType: "radio",
-    genderSelection: {
+    selection: {
       selected: "Probate",
       options: [
         {
@@ -338,8 +338,150 @@ const FormData = [
     },
     buttonName: "Save & Continue",
   },
+  {
+    heading: "Notice given to Executors to whom Power has been reserved?",
+    selected: "Yes",
+    inputType: "radio",
+    executors: {
+      options: [
+        { id: 1, label: "Yes", value: "Yes" },
+        { id: 2, label: "No", value: "No" },
+      ],
+    },
+    buttonName: "Save & Continue",
+  },
+  {
+    heading:
+      "How many Executors have given notice to whom Power has been reserved?",
 
+    executorSelection: {
+      selected: "One",
+      options: [
+        { id: 1, label: "One", value: "One" },
+        { id: 2, label: "Two", value: "Two" },
+        { id: 3, label: "Three", value: "Three" },
+        { id: 4, label: "Four", value: "Four" },
+      ],
+    },
+    buttonName: "Save & Continue",
+  },
+  {
+    heading: "State the full name of Executor:",
+    subHeading: "Use the name on the National ID",
+    fields: [
+      { label: "First name", inputType: "text", name: "firstName" },
+      { label: "Last name", inputType: "text", name: "lastName" },
+    ],
+    buttonName: "Save & Continue",
+  },
+  {
+    heading: "Date notice was given?",
+
+    inputType: "date",
+    fields: [
+      {
+        label: "Day",
+        inputType: "text",
+        name: "deathDay",
+        message: "invalid Day",
+      },
+      {
+        label: "Month",
+        inputType: "text",
+        name: "deathMonth",
+        message: "invalid Month",
+      },
+      {
+        label: "Year",
+        inputType: "text",
+        name: "deathYear",
+        message: "invalid Year",
+      },
+    ],
+    buttonName: "Save & Continue",
+  },
+  {
+    heading: "Did any of the Executors died?",
+    selected: "Yes",
+    inputType: "radio",
+    died: {
+      options: [
+        { id: 1, label: "Yes", value: "Yes" },
+        { id: 2, label: "No", value: "No" },
+      ],
+    },
+    buttonName: "Save & Continue",
+  },
+  {
+    heading: "How many Executors have been died?",
+
+    executorsDiedSelection: {
+      selected: "One",
+      options: [
+        { id: 1, label: "One", value: "One" },
+        { id: 2, label: "Two", value: "Two" },
+        { id: 3, label: "Three", value: "Three" },
+        { id: 4, label: "Four", value: "Four" },
+      ],
+    },
+    buttonName: "Save & Continue",
+  },
+  {
+    heading: "State the name of Executor that died?",
+
+    fields: [
+      { label: "First name", inputType: "text", name: "firstName" },
+      { label: "Last name", inputType: "text", name: "lastName" },
+    ],
+    buttonName: "Save & Continue",
+  },
+  {
+    heading: "Did any Executors renounced?",
+    selected: "Yes",
+    inputType: "radio",
+    executorRenounced: {
+      options: [
+        { id: 1, label: "Yes", value: "Yes" },
+        { id: 2, label: "No", value: "No" },
+      ],
+    },
+    buttonName: "Save & Continue",
+  },
+  {
+    heading: "How many Executors have been renounced?",
+
+    executorsRenouncedSelection: {
+      selected: "One",
+      options: [
+        { id: 1, label: "One", value: "One" },
+        { id: 2, label: "Two", value: "Two" },
+        { id: 3, label: "Three", value: "Three" },
+        { id: 4, label: "Four", value: "Four" },
+      ],
+    },
+    buttonName: "Save & Continue",
+  },
+  {
+    heading: "Name of Executor that renounced:",
+    subHeading: "Use the name on the National ID",
+    fields: [
+      { label: "First name", inputType: "text", name: "firstName" },
+      { label: "Last name", inputType: "text", name: "lastName" },
+    ],
+    buttonName: "Save & Continue",
+  },
+  {
+    heading:
+      "State the value of personal estate in written and numerical form:",
+    subHeading: "Use the name on the National ID",
+    fields: [
+      { label: "Written", inputType: "text", name: "written" },
+      { label: "Numerical", inputType: "number", name: "numerical" },
+    ],
+    buttonName: "Save & Continue",
+  },
   //************************ */ Affidavit Form Data ******************
+
   {
     heading: "State the name of witness to the Will or Codicil:",
     subHeading: "Use the name on the National ID",

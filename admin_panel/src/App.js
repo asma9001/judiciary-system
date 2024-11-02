@@ -5,7 +5,10 @@ import Home from "./pages/Home";
 import { AddForm } from "./pages/AddForm";
 import ViewForm from "./pages/ViewForm";
 import FormsRequest from "./pages/FormsRequest";
-import SubNavbar from './components/SubNavbar';
+import SubNavbar from "./components/SubNavbar";
+import UploadDocumentPage from "./pages/UploadDocumentPage";
+import ViewDocument from "./pages/ViewDocument";
+import ViewPdf from "./pages/ViewPdf";
 import {
   BrowserRouter as Router,
   Route,
@@ -15,7 +18,7 @@ import {
 import Navbar from "./components/Navbar";
 
 function App() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -24,8 +27,7 @@ function App() {
   return (
     <Router>
       <div className="container-fluid">
-        <div className="row">
-          {/* Sidebar */}
+        <div className="row ">
           <div
             className={` col-12 col-md-2 ${
               isSidebarOpen ? "sidebar-open" : "sidebar-closed"
@@ -34,22 +36,22 @@ function App() {
             <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
           </div>
 
-          <div className="col-12 col-md-10 p-0">
+          <div className="col-12 col-md-10  p-0">
             <Navbar
               toggleSidebar={toggleSidebar}
               isSidebarOpen={isSidebarOpen}
             />
-            <SubNavbar/>
-            <div className="content-wrapper">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/addform" element={<AddForm />} />
-                <Route path="/viewform" element={<ViewForm />} />
-                <Route path="/formrequests" element={<FormsRequest />} />
-                <Route path="/uploadDocument" element={<Home />} />
-                <Route path="/viewDocument" element={<Home />} />
-              </Routes>
-            </div>
+            <SubNavbar />
+
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/addform" element={<AddForm />} />
+              <Route path="/viewform" element={<ViewForm />} />
+              <Route path="/formrequests" element={<FormsRequest />} />
+              <Route path="/uploadDocument" element={<UploadDocumentPage />} />
+              <Route path="/viewDocument" element={<ViewDocument />} />
+              <Route path="/viewpdf" element={<ViewPdf />} />
+            </Routes>
           </div>
         </div>
       </div>

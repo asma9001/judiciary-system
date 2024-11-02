@@ -30,10 +30,10 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         }`}
         // style={{ height: "100vh" }}
       >
-        <div className="d-flex flex-column align-items-center pt-md-2 pt-4 mt-5 mt-md-0 ">
+        <div className="d-flex z-1 flex-column align-items-center pt-md-2  mt-5 mt-md-0 ">
           <img src={Logo} alt="Logo" className="mb-2" />
-          <img src={vector} alt="Vector" className="mb-4" />
-          <div className="d-flex align-items-center mb-5">
+          <img src={vector} alt="Vector" className="mb-4 " />
+          <div className="d-flex align-items-center mb-5 ">
             <img
               src={userLogo}
               alt="User Avatar"
@@ -54,11 +54,13 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             <li className="nav-item">
               <Link
                 to="/"
-                className={`nav-link d-flex align-items-center py-2 gap-md-1 px-4 border-top rounded-sm  ${
+                className={`nav-link d-flex align-items-center py-2 gap-md-1 px-4 border-top rounded-sm ${
                   activeLink === "dashboard" ? "active" : "text-light"
                 }`}
-                onClick={() => handleNavItemClick("dashboard")}
-                onClick={() => handleClick()}
+                onClick={() => {
+                  handleNavItemClick("dashboard");
+                  handleClick();
+                }}
               >
                 <img src={dashboardIcon} alt="Dashboard" className="me-2" />
                 <span>Dashboard</span>
@@ -87,7 +89,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                 className={`collapse ${openDropdown === "forms" ? "show" : ""}`}
               >
                 <ul className="list-unstyled  ">
-                  <li className="border-bottom">
+                  <li className="border-bottom p-1">
                     <Link
                       to="/addform"
                       className="nav-link ms-4 text-light py-1 "
@@ -96,7 +98,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                       Add Form
                     </Link>
                   </li>
-                  <li className="border-bottom">
+                  <li className="border-bottom p-1">
                     <Link
                       to="/viewform"
                       className="nav-link ms-4 text-light py-1"
@@ -105,7 +107,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                       View Form
                     </Link>
                   </li>
-                  <li>
+                  <li className="p-1">
                     <Link
                       to="/formrequests"
                       className="nav-link text-light ms-4 py-1"
@@ -163,7 +165,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                 }`}
               >
                 <ul className="list-unstyled">
-                  <li className="border-bottom">
+                  <li className="border-bottom p-1">
                     <Link
                       to="/uploadDocument"
                       className="nav-link text-light ms-4 py-1"
@@ -172,7 +174,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                       Upload Document
                     </Link>
                   </li>
-                  <li className="border-bottom">
+                  <li className="border-bottom p-1">
                     <Link
                       to="/viewDocument"
                       className="nav-link text-light ms-4 py-1"

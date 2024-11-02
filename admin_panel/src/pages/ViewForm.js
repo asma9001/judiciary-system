@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import actionImage from "../assets/actionIcon.svg";
+import { Link } from "react-router-dom";
+import html2pdf from "html2pdf.js";
+import PdfPreviewModel from "../components/Petition/PdfPreviewModel";
 const ViewForm = () => {
   const [index, setIndex] = useState(0);
 
-  const totalPages = 3;
+  const [showPdfPreview, setShowPdfPreview] = useState("true"); // New state variable
+
+  const totalPages = 1;
   const handleNextClick = () => {
     if (index < totalPages - 1) {
       setIndex(index + 1);
@@ -125,9 +130,11 @@ const ViewForm = () => {
                       <span className="status-approved">Approved</span>
                     </td>
                     <td className="px-3 py-2 text-center">
-                      <button style={{ border: "none" }}>
-                        <img src={actionImage} alt="action" />
-                      </button>
+                      <Link>
+                        <button style={{ border: "none" }}>
+                          <img src={actionImage} alt="action" />
+                        </button>
+                      </Link>
                     </td>
                   </tr>
                   <tr
@@ -218,7 +225,7 @@ const ViewForm = () => {
             </div>
           </div>
         )}
-        {index === 1 && (
+        {/* {index === 1 && (
           <div className="mt-3  ">
             <div
               className="w-full overflow-x-auto"
@@ -343,7 +350,7 @@ const ViewForm = () => {
               </table>
             </div>
           </div>
-        )}
+        )} */}
 
         <div className="d-flex align-items-center mx-4 my-4">
           <div className=" container mt-4 justify-content-end  gap-3 d-flex align-items-center ">
@@ -353,7 +360,7 @@ const ViewForm = () => {
               type="button"
               style={{
                 border: "none",
-                backgroundColor: "rgba(0, 150, 136, 1)", // Set the background color here
+                backgroundColor: "rgba(0, 150, 136, 1)",
                 padding: "none",
               }}
             >
@@ -361,7 +368,7 @@ const ViewForm = () => {
                 onClick={handleBackClick}
                 style={{
                   border: "none",
-                  backgroundColor: "rgba(0, 150, 136, 1)", // Set the background color here
+                  backgroundColor: "rgba(0, 150, 136, 1)",
                   padding: "none",
                 }}
               >
@@ -384,7 +391,7 @@ const ViewForm = () => {
               type="button"
               style={{
                 border: "none",
-                backgroundColor: "rgba(0, 150, 136, 1)", // Set the background color here
+                backgroundColor: "rgba(0, 150, 136, 1)",
                 padding: "none",
               }}
             >
@@ -392,7 +399,7 @@ const ViewForm = () => {
                 onClick={handleNextClick}
                 style={{
                   border: "none",
-                  backgroundColor: "rgba(0, 150, 136, 1)", // Set the background color here
+                  backgroundColor: "rgba(0, 150, 136, 1)",
                   padding: "none",
                 }}
               >
@@ -402,6 +409,7 @@ const ViewForm = () => {
           </div>
         </div>
       </div>
+     
     </>
   );
 };

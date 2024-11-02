@@ -45,7 +45,7 @@ const FileUpload = () => {
               color: "#3C9CDB",
               boxShadow: "rgba(0, 0, 0, 0.3) 3px 3px 2px",
               border: "1px dashed rgb(159, 159, 159)",
-              cursor: "pointer", 
+              cursor: "pointer",
             }}
           >
             Select Files
@@ -53,20 +53,6 @@ const FileUpload = () => {
           </label>
         </div>
       </div>
-
-      {/* Uncomment to show selected files
-      {selectedFiles && (
-        <div className="mt-4">
-          <h5>Selected Files:</h5>
-          <ul className="list-group">
-            {Array.from(selectedFiles).map((file, index) => (
-              <li className="list-group-item" key={index}>
-                {file.name}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )} */}
     </div>
   );
 };

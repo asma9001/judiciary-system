@@ -1,13 +1,13 @@
 import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"; // Import useForm from react-hook-form
-import backIcon from "../assets/back-icon.svg";
+import backIcon from "../../assets/back-icon.svg";
 import { Modal } from "bootstrap"; // Import Bootstrap Modal
-import data from "../FormData";
-import coatArm from "../assets/Coat_of_arms_of_the_Bahamas 1.svg";
-import BahamasLogo from "../assets/bahams-logo.svg";
-import scanImage from "../assets/scanImage.svg";
-import closeIcon from "../assets/closeIcon.svg";
+import data from "../../FormData";
+import coatArm from "../../assets/Coat_of_arms_of_the_Bahamas 1.svg";
+import BahamasLogo from "../../assets/bahams-logo.svg";
+import scanImage from "../../assets/scanImage.svg";
+import closeIcon from "../../assets/closeIcon.svg";
 export const PreviewModel = () => {
   const [index, setIndex] = useState(0);
   const totalPages = 2;
@@ -29,12 +29,15 @@ export const PreviewModel = () => {
         tabIndex="-1"
         aria-labelledby="staticBackdropLabel"
         aria-hidden="true"
+        style={{
+          backgroundColor: "rgba(255, 255, 255, 0.6)",
+        }}
       >
         <div
           className="modal-dialog modal-lg modal-dialog-centered "
           style={{
             maxWidth: "595px",
-            backgroundColor: "rgba(255, 255, 255, 1)",
+            backgroundColor: "rgba(255, 255, 255, 0.6)",
           }}
         >
           <div

@@ -6,7 +6,8 @@ import { MdMenu } from "react-icons/md";
 const Navbar = ({ toggleSidebar }) => {
   return (
     <>
-      <nav className="navbar  navbar-expand-lg border-1 d-flex justify-content-between  border-white sticky-top bgcustom-color align-items-center">
+      <nav className="navbar navbar-expand-lg border-1 d-flex justify-content-between  border-white sticky-top bgcustom-color align-items-center">
+        
         <div className="container mx-md-4 mx-1 ">
           <MdMenu
             className="text-white fs-1 d-block d-md-none"
